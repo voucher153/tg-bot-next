@@ -1,15 +1,14 @@
 "use client";
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { webAppContext } from "./context";
+import { TelegramWebApps } from "telegram-webapps-types-new";
 
 export default function Home() {
   const app = useContext(webAppContext);
-  
-  const tg = window.Telegram.WebApp
 
   const onClose = () => {
-    tg.close()
+    app.close()
   }
 
   return (
