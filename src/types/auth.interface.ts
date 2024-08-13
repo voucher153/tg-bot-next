@@ -1,0 +1,25 @@
+export interface IAuthForm {
+    company: string,
+    phone: string,
+    code?: string,
+    type?: 'admin' | 'user'
+}
+
+interface IUserPersonal {
+    id: number
+    company: string,
+    phone: string,
+    type?: 'admin' | 'user'
+}
+
+export interface IUser {
+    user: IUserPersonal
+}
+
+export interface IAuthResponce {
+    accessToken: string,
+    user: IUser
+}
+
+
+export type TypeUserForm = Omit<IUserPersonal, 'id'> & { code?: string }

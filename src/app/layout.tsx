@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
 import Script from "next/script";
-import Providers from "./providers/providers";
+import { Providers } from "./providers";
+import { Toaster } from 'sonner'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html lang="ru" suppressHydrationWarning={true}>
       <head>
         <meta
           name="viewport"
@@ -31,10 +32,11 @@ export default function RootLayout({
         <meta name="robots" content="noindex,nofollow"/>
         <Script src="https://telegram.org/js/telegram-web-app.js" strategy="beforeInteractive" />
       </head>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning={true}>
         <Providers>
           {children}
         </Providers>
+        <Toaster />
       </body>
     </html>
   );
