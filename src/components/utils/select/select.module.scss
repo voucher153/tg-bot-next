@@ -30,6 +30,7 @@
 
 .dropdown, .dropdown-visible {
     position: absolute;
+    z-index: 999999;
     top: 110%;
     left: 0;
     background-color: #fff;
