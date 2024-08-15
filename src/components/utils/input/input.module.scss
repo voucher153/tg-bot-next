@@ -4,6 +4,16 @@
     margin: 0 auto;
 }
 
+.error {
+    color: #d90000;
+    font-size: 14px;
+    margin: 0 0 0 10px;
+    padding: 0;
+    // position: absolute;
+    // bottom: -20px;
+    // left: 10px;
+}
+
 .input {
     width: 300px;
     appearance: none;

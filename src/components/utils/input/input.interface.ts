@@ -1,5 +1,5 @@
 import { IAuthForm } from "@/types/auth.interface";
-import { UseFormRegister } from "react-hook-form";
+import { FieldErrors, UseFormRegister } from "react-hook-form";
 
 export interface IInput {
     register: UseFormRegister<IAuthForm>
@@ -7,4 +7,5 @@ export interface IInput {
     type: string
     placeholder?: string
     defaultValue?: string
+    errors: FieldErrors<IAuthForm>
 }

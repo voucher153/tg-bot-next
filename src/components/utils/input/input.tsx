@@ -8,10 +8,12 @@ import Image from "next/image"
 import show from '../../../../public/img/eye-password-show-svgrepo-com.svg'
 import hide from '../../../../public/img/eye-password-hide-svgrepo-com.svg'
 
-export const Input = ({register, name, type, placeholder, defaultValue=""}: IInput) => {
+export const Input = ({register, name, type, placeholder, defaultValue="", errors}: IInput) => {
     
     const [active, setActive] = useState(false)
     
+    const error = errors?.[name]?.message as string | undefined
+
     const handleClick = () => {
         setActive(!active)
     }
@@ -60,6 +62,7 @@ export const Input = ({register, name, type, placeholder, defaultValue=""}: IInp
 
     return (
         <div className={s['input-block']}>
+            
             <input 
                 {...register(name)}
                 name={name}
@@ -73,6 +76,7 @@ export const Input = ({register, name, type, placeholder, defaultValue=""}: IInp
                     :
                     s.input}
             />
+            <div className={s.error}>{error}</div>
             {checkName()}
         </div>
     )

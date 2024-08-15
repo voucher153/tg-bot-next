@@ -96,18 +96,21 @@ export const AuthForm = ({type}: {type: 'register' | 'login'}) => {
                     placeholder="Название вашей компании"
                     register={register}
                     type="text"
+                    errors={errors}
                 />
                 <Input 
                     name="phone"
                     placeholder="Ваш номер телефона"
                     register={register}
                     type="text"
+                    errors={errors}
                 />
                 <Input 
                     name="username"
                     placeholder="username"
                     register={register}
                     type="text"
+                    errors={errors}
                 />
                 <Select 
                     register={register} 
@@ -121,6 +124,7 @@ export const AuthForm = ({type}: {type: 'register' | 'login'}) => {
                         name="code"
                         type="password"
                         placeholder='Код'
+                        errors={errors}
                     />
                     ) : null
                 }
