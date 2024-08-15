@@ -6,7 +6,7 @@ import { errorCatch, getContentType } from './api.helper'
 import { getAccessToken, removeTokenFromStorage } from '../services/auth/auth-token.service'
 
 const options: CreateAxiosDefaults = {
-    baseURL: process.env.SERVER_URL || 'http://localhost:4200/',
+    baseURL: 'https://tg-bot-next-back.onrender.com/',
     headers: getContentType(),
     withCredentials: true
 }
