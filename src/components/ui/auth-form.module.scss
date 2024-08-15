@@ -1,5 +1,5 @@
 .logo-block {
-    margin: 0 0 40px 0;
+    margin: 25px 0;
 }
 
 .logo {
@@ -16,6 +16,8 @@
 
 .move-block {
     padding: 0 6px;
+    font-size: 1rem;
+    margin: 0 0 30px 0;
 }
 
 .link {
@@ -26,7 +28,7 @@
 .button {
     background-color: var(--main-color);
     padding: 10px 20px;
-    font-size: 1.15rem;
+    font-size: 1rem;
     color: #fff;
     border-radius: 25px;
 }

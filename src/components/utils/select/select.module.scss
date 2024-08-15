@@ -1,6 +1,6 @@
 
 .select-block {
-    width: 350px;
+    width: 300px;
     position: relative;
 }
 
@@ -16,9 +16,9 @@
 }
 
 .select {
-    min-width: 350px;
+    width: 300px;
     appearance: none;
-    font-size: 1.15rem;
+    font-size: 1rem;
     padding: 10px 20px;
     background-color: #fff;
     border: 2px solid var(--main-color);

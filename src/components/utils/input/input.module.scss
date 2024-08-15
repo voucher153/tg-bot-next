@@ -1,12 +1,13 @@
 
 .input-block {
     position: relative;
+    margin: 0 auto;
 }
 
 .input {
-    min-width: 350px;
+    width: 300px;
     appearance: none;
-    font-size: 1.15rem;
+    font-size: 1rem;
     padding: 10px 20px;
     background-color: #fff;
     border: 2px solid var(--main-color);
@@ -14,21 +15,28 @@
     color: var(--main-color);
     font-weight: 450;
     cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+    &:focus {
+        outline: none !important;
+        //border: 2px solid var(--main-color) !important;
+        box-shadow: 0px 0px 15px rgba($color: #3d50f5, $alpha: 0.3);
+        transition: box-shadow 0.3s ease-in-out;
+    }
 }
 
 .input-code {
-    max-width: 350px;
-    font-size: 24px;
-    padding: 5.8px 50px 5.8px 20px;
+    max-width: 300px;
+    font-size: 20px;
+    padding: 5.8px 50px 8px 20px;
     
     &_active {
-        font-size: 1.15rem;
+        font-size: 1rem;
         padding: 10px 50px 10px 20px;
     }
 }
 
 .input-code::placeholder {
-    font-size: 1.15rem !important;
+    font-size: 1rem !important;
 }
 
 .eye {
@@ -36,8 +44,8 @@
     height: 24px;
     stroke: var(--main-color);
     position: absolute;
-    top: 14px;
-    right: 22px;
+    top: 12px;
+    right: 20px;
     background-color: #fff;
     cursor: pointer;
 }
@@ -45,6 +53,6 @@
 .show {
     width: 22px;
     height: 22px;
-    right: 23px;
-    top: 15px;
+    right: 21px;
+    top: 13px;
 }
