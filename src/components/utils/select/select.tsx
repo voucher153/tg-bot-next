@@ -9,6 +9,8 @@ import { convertAuthTypeValue } from '../convertAuthType/convertAuthType'
 
 export const Select = ({register, setValue, typeValue, setTypeValue}: ISelect) => {
     
+    useEffect(() => {}, [typeValue])
+
     const inputRef = useRef<HTMLInputElement>(null)
 
     const {isActive, setIsActive} = useOutsideClick(false, inputRef)
@@ -18,6 +20,7 @@ export const Select = ({register, setValue, typeValue, setTypeValue}: ISelect) =
     }
 
     const handleChangeSelect = (target: any) => {
+        debugger
         setTypeValue(target.innerHTML)
         setValue('type', convertAuthTypeValue(target.innerHTML))
     }
@@ -30,6 +33,7 @@ export const Select = ({register, setValue, typeValue, setTypeValue}: ISelect) =
                 name='type'
                 type='text' 
                 defaultValue={typeValue}
+                //value={typeValue}
                 ref={inputRef} 
                 onClick={handleClick} 
                 onMouseDown={e => e.preventDefault()}

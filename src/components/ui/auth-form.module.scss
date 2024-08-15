@@ -1,49 +1,32 @@
-
-.select-block {
-    width: 350px;
-    position: relative;
+.logo-block {
+    margin: 0 0 40px 0;
 }
 
-.select-dropdown-text {
+.logo {
+    width: 400px;
+}
+
+.form-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.move-block {
+    padding: 0 6px;
+}
+
+.link {
     color: var(--main-color);
-    padding: 12px 20px;
-    cursor: pointer;
+    font-weight: 600;
 }
 
-.select-dropdown-text:last-child {
-    border-top: 1px solid var(--main-color);
-    width: 100%;
-}
-
-.select {
-    min-width: 350px;
-    appearance: none;
-    font-size: 1.15rem;
+.button {
+    background-color: var(--main-color);
     padding: 10px 20px;
-    background-color: #fff;
-    border: 2px solid var(--main-color);
+    font-size: 1.15rem;
+    color: #fff;
     border-radius: 25px;
-    color: var(--main-color);
-    font-weight: 450;
-    cursor: pointer;
-}
-
-.dropdown, .dropdown-visible {
-    position: absolute;
-    top: 110%;
-    left: 0;
-    background-color: #fff;
-    width: 100%;
-    border: 1px solid var(--main-color);
-    border-radius: 25px;
-    transition: all 0.1s ease-in-out;
-    overflow: hidden;
-}
-
-.dropdown {
-    display: none;
-}
-
-.dropdown-visible {
-    display: block;
 }

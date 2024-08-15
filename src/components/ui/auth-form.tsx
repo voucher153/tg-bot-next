@@ -1,17 +1,22 @@
 'use client'
 
+import s from './auth-form.module.scss'
 import { IAuthForm } from "@/types/auth.interface"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { MenuItem } from "@mui/material"
 import { Select } from "../utils/select/select"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { useMutation } from "@tanstack/react-query"
 import { authService } from "@/services/auth/auth.service"
 import { toast } from "sonner"
 import { isAxiosError } from "axios"
+import { Input } from "../utils/input/input"
+import Link from 'next/link'
+import Image from 'next/image'
+import logo from '../../../public/img/Frame.svg'
 
 const phoneValidation = new RegExp(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/)
 
@@ -48,6 +53,10 @@ export const AuthForm = ({type}: {type: 'register' | 'login'}) => {
         }
     })
 
+    useEffect(() => {
+        
+    }, [typeValue])
+
     const {push} = useRouter()
 
     const {mutate} = useMutation({
@@ -77,37 +86,66 @@ export const AuthForm = ({type}: {type: 'register' | 'login'}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <input 
-                {...register('company')}
-                type="text"
-                placeholder="company"
-                />
-            <input 
-                {...register('phone')}
-                type="text"
-                placeholder="phone"
-                />
-            <input 
-                {...register('username')}
-                type="text"
-                placeholder="user"
-                />
-            <Select 
-                register={register} 
-                setValue={setValue} 
-                typeValue={typeValue} 
-                setTypeValue={setTypeValue} 
-            />
-            {typeValue === 'Админ' ? 
-                (<input 
-                    {...register('code')}
+        <>
+            <div className={s['logo-block']}>
+                <Image src={logo} alt='logo' className={s.logo} />
+            </div>
+            <form className={s['form-block']} onSubmit={handleSubmit(onSubmit)}>
+                <Input 
+                    name="company"
+                    placeholder="Название вашей компании"
+                    register={register}
                     type="text"
-                    placeholder="code"
+                />
+                <Input 
+                    name="phone"
+                    placeholder="Ваш номер телефона"
+                    register={register}
+                    type="text"
+                />
+                <Input 
+                    name="username"
+                    placeholder="username"
+                    register={register}
+                    type="text"
+                />
+                <Select 
+                    register={register} 
+                    setValue={setValue} 
+                    typeValue={typeValue} 
+                    setTypeValue={setTypeValue} 
+                />
+                {typeValue === 'Админ' ? 
+                    (<Input 
+                        register={register}
+                        name="code"
+                        type="password"
+                        placeholder='Код'
                     />
-                ) : null
-            }
-            <button type="submit">Submit</button>
-        </form>
+                    ) : null
+                }
+                {type === 'register' ? (
+                    <button className={s.button} type="submit">Зарегистрироваться</button>
+                ) : (
+                    <button className={s.button} type="submit">Войти</button>
+                )}
+                <div className={s['move-block']}>
+                    {type === 'register' ? 
+                        (
+                            <>
+                                <p>
+                                    Вы уже наш клиент?
+                                    <Link href='/login' className={s.link}> Войти</Link>
+                                </p>
+                            </>
+                        ) : (
+                            <>
+                                <p>Хотите стать нашим клиентом?</p>
+                                <Link href='/register' className={s.link}>Зарегистрироваться</Link>
+                            </>
+                        )}
+                </div>
+            </form>
+        </>
     )
 }

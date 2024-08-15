@@ -14,7 +14,6 @@ export default function AuthLayout({children}: {children: React.ReactNode}) {
 
     return (
         <div className="relative flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
-            <p className="text-slate-600">hi</p>
             {children}
         </div>
     )

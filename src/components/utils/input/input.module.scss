@@ -1,0 +1,50 @@
+
+.input-block {
+    position: relative;
+}
+
+.input {
+    min-width: 350px;
+    appearance: none;
+    font-size: 1.15rem;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 2px solid var(--main-color);
+    border-radius: 25px;
+    color: var(--main-color);
+    font-weight: 450;
+    cursor: pointer;
+}
+
+.input-code {
+    max-width: 350px;
+    font-size: 24px;
+    padding: 5.8px 50px 5.8px 20px;
+    
+    &_active {
+        font-size: 1.15rem;
+        padding: 10px 50px 10px 20px;
+    }
+}
+
+.input-code::placeholder {
+    font-size: 1.15rem !important;
+}
+
+.eye {
+    width: 24px;
+    height: 24px;
+    stroke: var(--main-color);
+    position: absolute;
+    top: 14px;
+    right: 22px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.show {
+    width: 22px;
+    height: 22px;
+    right: 23px;
+    top: 15px;
+}
