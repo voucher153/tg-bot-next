@@ -34,5 +34,6 @@ export const removeTypeFromStorage = () => {
 
 export const saveToLocalStorage = (data: IAuthResponce) => {
     saveTokenStorage(data.accessToken)
+    saveTypeToStorage(data.user.type!)
     localStorage.setItem('user', JSON.stringify(data.user))
 }

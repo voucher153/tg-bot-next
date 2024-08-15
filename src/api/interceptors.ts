@@ -6,7 +6,7 @@ import { errorCatch, getContentType } from './api.helper'
 import { getAccessToken, removeTokenFromStorage } from '../services/auth/auth-token.service'
 
 const options: CreateAxiosDefaults = {
-    baseURL: process.env.SERVER_URL,
+    baseURL: process.env.SERVER_URL || 'http://localhost:4200/',
     headers: getContentType(),
     withCredentials: true
 }

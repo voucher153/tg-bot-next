@@ -16,6 +16,10 @@
     "push": "drizzle-kit push:pg"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@hookform/resolvers": "^3.9.0",
+    "@mui/material": "^5.16.7",
     "@next/bundle-analyzer": "^14.2.3",
     "@reduxjs/toolkit": "^2.2.7",
     "@tanstack/react-query": "^5.40.0",
@@ -38,7 +42,8 @@
     "react-redux": "^9.1.2",
     "redux-persist": "^6.0.0",
     "sass": "^1.77.8",
-    "sonner": "^1.5.0"
+    "sonner": "^1.5.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^5.35.6",
@@ -48,11 +53,12 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/redux-persist": "^4.3.1",
+    "autoprefixer": "^10.4.20",
     "drizzle-kit": "^0.20.14",
     "eslint": "^8",
     "eslint-config-next": "14.2.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.9",
     "telegram-webapps-types-new": "^1.2.0",
     "typescript": "^5"
   }

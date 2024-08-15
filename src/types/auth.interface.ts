@@ -1,4 +1,5 @@
 export interface IAuthForm {
+    username: string
     company: string,
     phone: string,
     code?: string,
@@ -6,7 +7,8 @@ export interface IAuthForm {
 }
 
 interface IUserPersonal {
-    id: number
+    id: number,
+    username: string
     company: string,
     phone: string,
     type?: 'admin' | 'user'
@@ -18,7 +20,7 @@ export interface IUser {
 
 export interface IAuthResponce {
     accessToken: string,
-    user: IUser
+    user: IUserPersonal
 }
 
 

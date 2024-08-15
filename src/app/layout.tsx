@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Montserrat, Noto_Sans } from "next/font/google";
 import "./globals.scss";
 import Script from "next/script";
 import { Providers } from "./providers";
 import { Toaster } from 'sonner'
 
-const inter = Inter({ subsets: ["latin"] });
+//const inter = Inter({ subsets: ["latin"] });
+
+const noto = Noto_Sans({subsets: ['cyrillic', 'latin']})
+
+const montserrat = Montserrat({subsets: ['cyrillic', 'cyrillic-ext', 'latin']})
 
 export const metadata: Metadata = {
   title: "WebApp telegram template",
@@ -32,7 +36,7 @@ export default function RootLayout({
         <meta name="robots" content="noindex,nofollow"/>
         <Script src="https://telegram.org/js/telegram-web-app.js" strategy="beforeInteractive" />
       </head>
-      <body className={inter.className} suppressHydrationWarning={true}>
+      <body className={`${noto.className} ${montserrat.className}`} suppressHydrationWarning={true}>
         <Providers>
           {children}
         </Providers>
