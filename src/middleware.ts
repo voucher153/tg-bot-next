@@ -6,7 +6,7 @@ export async function middleware(request: NextRequest, responce: NextResponse) {
     const {url, cookies} = request
 
     debugger
-    const refreshToken = cookies.get(EnumTokens.REFRESH_TOKEN)?.value
+    const refreshToken = cookies.get(EnumTokens.ACCESS_TOKEN)?.value
     const isAuthPage = url.includes('/login') || url.includes('/register')
 
     const isAdmin = cookies.get('type')?.value === 'admin'
