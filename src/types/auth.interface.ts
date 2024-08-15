@@ -6,7 +6,7 @@ export interface IAuthForm {
     type?: 'admin' | 'user'
 }
 
-interface IUserPersonal {
+export interface IUserPersonal {
     id: number,
     username: string
     company: string,

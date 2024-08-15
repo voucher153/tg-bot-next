@@ -1,6 +1,6 @@
-import { IUser } from "../../types/auth.interface";
+import { IUser, IUserPersonal } from "../../types/auth.interface";
 
 export interface IInitialState {
-    user: IUser | null,
+    user: IUserPersonal | null,
     isLoading: boolean
 }
