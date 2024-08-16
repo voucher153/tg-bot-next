@@ -12,3 +12,7 @@ body {
     background-color: #fff !important;
     --main-color: #2734a3;
 }
+
+input::-ms-clear {
+	display: none;
+}
