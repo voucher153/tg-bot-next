@@ -54,7 +54,9 @@ export const AuthForm = ({type}: {type: 'register' | 'login'}) => {
     })
 
     useEffect(() => {
-        
+        if (typeValue === 'Клиент') {
+            setValue('code', '')
+        }
     }, [typeValue])
 
     const {push} = useRouter()
