@@ -33,7 +33,7 @@ export const Select = ({register, setValue, typeValue, setTypeValue}: ISelect) =
                 name='type'
                 type='text' 
                 defaultValue={typeValue}
-                //value={typeValue}
+                value={typeValue}
                 ref={inputRef} 
                 onClick={handleClick} 
                 onMouseDown={e => e.preventDefault()}

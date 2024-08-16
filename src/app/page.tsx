@@ -6,6 +6,7 @@ import { TelegramWebApps } from "telegram-webapps-types-new";
 import { useMutation } from "@tanstack/react-query";
 import { authService } from "@/services/auth/auth.service";
 import { useRouter } from "next/navigation";
+import { HomePage } from "@/components/ui/homePage/home";
 
 export default function Home() {
   const app = useContext(webAppContext);
@@ -31,8 +32,9 @@ export default function Home() {
 
   return (
     <>
-    <button onClick={onClose}>close</button>
-    <button onClick={onSub}>logout</button>
+      <button onClick={onClose}>close</button>
+      <button onClick={onSub}>logout</button>
+      <HomePage />
     </>
   );
 }

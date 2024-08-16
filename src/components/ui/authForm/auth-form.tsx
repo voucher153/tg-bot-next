@@ -6,17 +6,17 @@ import { SubmitHandler, useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { MenuItem } from "@mui/material"
-import { Select } from "../utils/select/select"
+import { Select } from "../../utils/select/select"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { useMutation } from "@tanstack/react-query"
 import { authService } from "@/services/auth/auth.service"
 import { toast } from "sonner"
 import { isAxiosError } from "axios"
-import { Input } from "../utils/input/input"
+import { Input } from "../../utils/input/input"
 import Link from 'next/link'
 import Image from 'next/image'
-import logo from '../../../public/img/Frame.svg'
+import logo from '../../../../public/img/Frame.svg'
 
 const phoneValidation = new RegExp(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/)
 

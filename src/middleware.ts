@@ -12,8 +12,8 @@ export async function middleware(request: NextRequest, responce: NextResponse) {
     const isAdmin = cookies.get('type')?.value === 'admin'
     const isAdminPage = url.includes('/i')
 
-    if (isAdmin && isAdminPage || isAdmin && !isAdminPage) {
-        return NextResponse.next()
+    if (isAdmin && !isAdminPage) {
+        return NextResponse.redirect(new URL('/i', url))
     }
 
     if (!isAdmin && isAdminPage) {
