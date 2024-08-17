@@ -3,9 +3,11 @@ import { IInitialState } from "./user.interface";
 import { checkAuth, login, logout, register } from "./user.actions";
 
 const initialState: IInitialState = {
-    user: localStorage.getItem('user') ? JSON.parse
-        (localStorage.getItem('user') as string) : null,
-    isLoading: false
+    // user: localStorage.getItem('user') ? JSON.parse
+    //     (localStorage.getItem('user') as string) : null,
+    user: null,
+    isLoading: false,
+    orders: []
 }
 
 export const userSlice = createSlice({

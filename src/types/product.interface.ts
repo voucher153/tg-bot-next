@@ -7,6 +7,7 @@ export interface IProduct {
     imageUrl: string,
     category: ICategory,
     createdAt: string
+    slug: string
 }
 
 export type TypeProductData = {
@@ -32,4 +33,13 @@ export enum EnumProductSort {
 
 export interface IProductDetails {
     product: IProduct
+}
+
+export type TypeParamsFilters = {
+    searchParams: TypeProductDataFilters
+}
+
+export type TypePaginationsProducts = {
+    length: number
+    products: IProduct[]
 }

@@ -1,10 +1,8 @@
 import { AdminPage } from "@/components/ui/admin/adminPage/admin-home"
 
-const Admin = () => {
+function Admin() {
     return (
-        <div>
-            <AdminPage />
-        </div>
+        <AdminPage />
     )
 }
 

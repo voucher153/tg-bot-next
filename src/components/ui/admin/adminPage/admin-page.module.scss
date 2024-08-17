@@ -1,0 +1,36 @@
+.block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    transform: translateY(200px);
+}
+
+.item {
+    width: 300px;
+    transform: translateX(-100%);
+    opacity: 0;
+    animation: slideInLeft 1s forwards;
+
+    @for $i from 1 through 2 {
+        &:nth-child(#{$i}) {
+            animation-delay: 0.2s * $i;
+        }
+    }
+}
+
+.link {
+    width: 100%;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

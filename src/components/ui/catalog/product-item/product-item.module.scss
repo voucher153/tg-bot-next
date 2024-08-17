@@ -1,0 +1,105 @@
+
+.item-wrapper {
+    background-color: transparent;
+    position: relative;
+    border-radius: 25px;
+    overflow: hidden;
+    width: 100%;
+    border: 2px solid var(--main-color);
+    padding: 10px;
+}
+
+.quanity {
+
+}
+
+.price {
+    width: 80px;
+    position: absolute;
+    background-color: var(--main-color);
+    color: #fff;
+    top: 0;
+    right: 0;
+    border-radius: 0 0 0 25px;
+    text-align: center;
+    font-size: 13px;
+    padding: 2px 0;
+    box-shadow: 3px -3px var(--main-color);
+}
+
+.img {
+    margin: 0 auto;
+    margin-top: 18px;
+}
+
+.name {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--main-color);
+    text-align: center;
+    margin: 0 0 5px 0;
+}
+
+.buttons {
+    display: flex;
+}
+
+.add, .added {
+    background-color: var(--main-color);
+    color: #fff;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.change {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    width: 100%;
+    padding: 1.5px 5px;
+}
+
+.quanity {
+    transform: translateX(-200%);
+    opacity: 0;
+    animation: slideInLeft 0.5s forwards;
+    animation-delay: 0.1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.minus, .plus {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-200%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.add {
+    overflow: hidden;
+    text-align: center;
+    padding: 3px 0;
+    font-size: 14px;
+}
+
+.add-text {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}

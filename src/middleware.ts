@@ -10,10 +10,10 @@ export async function middleware(request: NextRequest, responce: NextResponse) {
     const isAuthPage = url.includes('/login') || url.includes('/register')
 
     const isAdmin = cookies.get('type')?.value === 'admin'
-    const isAdminPage = url.includes('/i')
+    const isAdminPage = url.includes('/admin')
 
     if (isAdmin && !isAdminPage) {
-        return NextResponse.redirect(new URL('/i', url))
+        return NextResponse.redirect(new URL('/admin', url))
     }
 
     if (!isAdmin && isAdminPage) {

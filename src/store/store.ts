@@ -2,32 +2,40 @@
 import {
     FLUSH,
     PAUSE,
-    PERSIST, persistReducer,
+    PERSIST,
     persistStore, PURGE,
     REGISTER,
     REHYDRATE
 } from 'redux-persist'
-import storage from 'redux-persist/lib/storage';
 
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { userSlice } from './user/user.slice';
 import { cartSlice } from './cart/cart.slice';
 
-const persistConfig = {
-    key: "telegramBot",
-    storage,
-    whiteList: ['cart']
-}
+const isClient = typeof window != 'undefined'
 
-const rootReducer = combineReducers({
+const combinedReducers = combineReducers({
     cart: cartSlice.reducer,
     user: userSlice.reducer
 })
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+let mainReducer = combinedReducers
 
-export const store = configureStore({
-    reducer: persistedReducer,
+if (isClient) {
+    // const { persistReducer } = require('redux-persist')
+    // const storage = require('redux-persist/lib/storage').default
+    
+    // const persistConfig = {
+    //     key: "telegramBot",
+    //     storage,
+    //     whiteList: ['cart']
+    // }
+
+    // mainReducer = persistReducer(persistConfig, combinedReducers)
+}
+
+export const makeStore = () => configureStore({
+    reducer: mainReducer,
     middleware: getDefaultMiddleware => 
         getDefaultMiddleware({
             serializableCheck: {
@@ -36,6 +44,7 @@ export const store = configureStore({
         })
 })
 
-export const persister = persistStore(store)
+//export const persister = persistStore(makeStore())
 
-export type TypeRootState = ReturnType<typeof rootReducer>
+export type AppStore = ReturnType<typeof makeStore>
+export type TypeRootState = ReturnType<typeof mainReducer>

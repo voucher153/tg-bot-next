@@ -1,40 +1,26 @@
-"use client";
-
-import { useContext, useEffect } from "react";
-import { webAppContext } from "./context";
-import { TelegramWebApps } from "telegram-webapps-types-new";
-import { useMutation } from "@tanstack/react-query";
-import { authService } from "@/services/auth/auth.service";
-import { useRouter } from "next/navigation";
 import { HomePage } from "@/components/ui/homePage/home";
+import { productService } from "@/services/product/product.service";
+import { IProduct, TypePaginationsProducts } from "@/types/product.interface";
+import { useState } from "react";
 
-export default function Home() {
-  const app = useContext(webAppContext);
+export const revalidate = 3600
 
-  const onClose = () => {
-    app.close()
-  }
+const fetchData = async () => {
+  const {data} = await productService.getAll({
+    page: 1,
+    perPage: 4
+  })
+  return data
+}
 
-  const {push} = useRouter()
+export default async function Home() {
 
-    const {mutate} = useMutation({
-        mutationKey: ['logout'],
-        mutationFn: () => authService.logout(),
-        onSuccess() {
-            push('/login')
-        }
-    })
-
-    const onSub = async () => {
-      debugger
-        mutate()
-    }
+  const data = await fetchData()
 
   return (
     <>
-      <button onClick={onClose}>close</button>
-      <button onClick={onSub}>logout</button>
-      <HomePage />
+      
+      <HomePage products={data.products} length={data.length} />
     </>
   );
 }

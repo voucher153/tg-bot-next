@@ -1,11 +1,11 @@
 import { axiosWithAuth } from "../../api/interceptors"
-import { IProduct, TypeProductData, TypeProductDataFilters } from "../../types/product.interface"
+import { IProduct, TypePaginationsProducts, TypeProductData, TypeProductDataFilters } from "../../types/product.interface"
 
-const BASE_URL = '/category'
+const BASE_URL = '/product'
 
 export const productService = {
     async getAll(queryData = {} as TypeProductDataFilters) {
-        return axiosWithAuth.get<IProduct[]>(BASE_URL, {
+        return axiosWithAuth.get<TypePaginationsProducts>(BASE_URL, {
             params: queryData
         })
     },
@@ -15,7 +15,8 @@ export const productService = {
     },
 
     async getBySlug(slug: string) {
-        return axiosWithAuth.get<IProduct[]>(`${BASE_URL}/by-slug/${slug}`)
+        const {data} = await axiosWithAuth.get<IProduct[]>(`${BASE_URL}/by-slug/${slug}`)
+        return data
     },
 
     async getByCategory(categorySlug: string) {
