@@ -26,7 +26,7 @@ export const HomePage: FC<IHomePage> = ({products, length, categories}) => {
 
     const {addCategories} = useActions()
 
-    //if (Cookies.get('type') === 'admin') push('/admin')
+    if (Cookies.get('type') === 'admin') push('/admin')
 
     useEffect(() => {
         addCategories(categories)
