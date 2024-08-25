@@ -29,7 +29,7 @@ export const ProductItem: FC<{product: IProduct}> = ({product}) => {
                 <Image 
                     src={product.imageUrl} 
                     width={130} 
-                    height={120} 
+                    height={130} 
                     alt={product.name} 
                     className={s.img}
                 />
