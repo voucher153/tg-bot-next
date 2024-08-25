@@ -24,7 +24,7 @@ export const FilterModal = () => {
             <div className={s.options}>
                 {categories.map(category => {
                     return (
-                        <Select category={category} />
+                        <Select key={category.id} category={category} />
                     )
                 })}
             </div>

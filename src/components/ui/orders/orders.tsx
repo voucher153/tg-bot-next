@@ -35,7 +35,7 @@ export const OrdersPage = () => {
                     (
                         responce?.data.map(order => {
                             return (
-                                <div className={s.order}>
+                                <div key={order.id} className={s.order}>
                                     <Order key={order.id} order={order} />
                                 </div>
                                 

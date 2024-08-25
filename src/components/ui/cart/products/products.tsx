@@ -19,7 +19,7 @@ export const OrderProducts: FC<{items: ICartItem[], orderPage?: boolean}> = ({it
             {!orderPage ? <h3 className={s.title}>Ваш заказ</h3> : null}
             {items.map((item) => {
                 return (
-                    <CartItem cartItem={item} />
+                    <CartItem key={item.id} cartItem={item} />
                 )
             })}
         </div>
