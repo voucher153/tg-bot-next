@@ -42,9 +42,9 @@ export const ProductImage: FC<IProductImage> = ({ setValue, register, src }) => 
 
     const checkUrl = () => {
         if (imageFile) {
-            return <Image width={130} height={100} src={imageFile} alt="image" />
+            return <Image width={130} height={120} src={imageFile} alt="image" />
         } else if (src) {
-            return <Image width={130} height={100} src={src} alt="src image" />
+            return <Image width={130} height={120} src={src} alt="src image" />
         }
         return null
     }
