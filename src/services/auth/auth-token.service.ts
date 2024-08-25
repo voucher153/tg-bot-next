@@ -28,6 +28,7 @@ export const saveTypeToStorage = (type: 'admin' | 'user') => {
     Cookies.set('type', type, {
         domain: process.env.DOMAIN,
         sameSite: 'strict',
+        expires: 30
     })
 }
 
