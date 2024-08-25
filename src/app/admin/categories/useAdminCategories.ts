@@ -18,7 +18,7 @@ export const useAdminCategories = () => {
                 editUrl: `${pathname}/edit/${category.id}`,
                 items: [
                     category.name,
-                    category.slug
+                    category.id,
                 ]
             }
         })
