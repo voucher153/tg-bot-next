@@ -1,0 +1,18 @@
+.text {
+    font-size: 20px;
+    font-weight: 500;
+    display: block;
+    margin: 0 0 20px 0;
+}
+
+.option, .selected {
+    width: 100%;
+    border-bottom: 1px solid var(--main-color);
+    padding: 20px 10px;
+    transition: all 0.3s ease;
+}
+
+.selected {
+    color: #fff !important;
+    background-color: var(--main-color);
+}

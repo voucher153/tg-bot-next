@@ -6,3 +6,9 @@ export interface ICartItem {
     quantity: number,
     price: number
 }
+
+export interface ICartItemPost {
+    productId: string
+    price: number
+    quantity: number
+}

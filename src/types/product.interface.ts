@@ -3,10 +3,13 @@ import { ICategory } from "./category.interface";
 export interface IProduct {
     id: string,
     name: string,
+    articule: string
+    measurement: string
     price: number,
     imageUrl: string,
-    category: ICategory,
+    categoryId: string,
     createdAt: string
+    new: boolean
     slug: string
 }
 
@@ -14,14 +17,19 @@ export type TypeProductData = {
     name: string
     imageUrl: string
     categoryId: string
-    price: number
+    price: string,
+    file: File | ''
+    new: string
+    measurement: string
+    articule: string
 }
 
 export type TypeProductDataFilters = {
     sort?: EnumProductSort
     searchTerm?: string
     page?: string | number
-    perPage?: string | number
+    perPage?: string | number,
+    categoryNames?: string[]
 }
 
 export enum EnumProductSort {
@@ -29,6 +37,13 @@ export enum EnumProductSort {
     LOW_PRICE = 'low-price',
     NEWEST = 'newest',
     OLDEST = 'oldest'
+}
+
+export enum EnumProductSortRus {
+    HIGH_PRICE = 'Сначала подороже',
+    LOW_PRICE = 'Сначала подешевле',
+    NEWEST = 'Сначала новые',
+    OLDEST = 'Сначала старые'
 }
 
 export interface IProductDetails {

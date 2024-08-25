@@ -4,3 +4,7 @@ export interface ICategory {
     name: string,
     slug: string
 }
+
+export interface UpdateCat {
+    name: string
+}

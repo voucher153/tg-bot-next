@@ -1,0 +1,20 @@
+.item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 5px 10px;
+    margin: 0 0 10px 0;
+    width: 100%;
+    border-radius: 0;
+    background-color: #fff;
+    border-bottom: 1px solid #dddddd;
+    justify-content: space-between;
+}
+
+.text:first-child {
+    font-weight: 600;
+}
+
+.text:last-child {
+    color: #a0a0a0;
+}

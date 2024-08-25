@@ -1,0 +1,22 @@
+.page-list {
+    display: flex;
+    justify-content: center;
+    gap: 10px
+}
+
+.page {
+    display: flex;
+    align-items: end;
+}
+
+.left-page, .right-page {
+    color: var(--main-color);
+}
+
+.left-page {
+    transform: translateX(4px) translateY(8px);
+}
+
+.right-page {
+    transform: translateX(-4px) translateY(8px);
+}

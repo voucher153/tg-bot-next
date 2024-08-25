@@ -4,6 +4,7 @@ import "./globals.scss";
 import Script from "next/script";
 import { Providers } from "./providers";
 import { Toaster } from 'sonner'
+import { Footer } from "@/components/utils/footer/footer";
 
 //const inter = Inter({ subsets: ["latin"] });
 

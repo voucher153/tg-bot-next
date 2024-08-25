@@ -1,0 +1,44 @@
+.wrapper {
+    margin: 10px 0 0 0;
+}
+
+.head {
+    padding: 20px 0;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.id {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+}
+
+.addit-info {
+    font-size: 14px;
+    font-weight: 600;
+    .date {
+        color: #a8a8a8;
+        display: inline-block;
+        margin: 0 10px 0 0;
+    }
+    .date-num {
+        color: #646464;
+        font-weight: 700;
+    }
+    .new {
+        color: #4352d4;
+    }
+    
+    .accept {
+        color: rgb(42, 207, 42);
+    }
+}
+
+.items {
+    padding: 30px 0;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.result {
+    padding: 20px 0;
+}

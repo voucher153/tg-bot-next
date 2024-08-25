@@ -1,0 +1,37 @@
+
+.input-block {
+    position: relative;
+    margin: 0 auto;
+    z-index: 888;
+    background-color: #fff;
+}
+
+.error {
+    color: #d90000;
+    font-size: 14px;
+    margin: 0 0 0 10px;
+    padding: 0;
+    // position: absolute;
+    // bottom: -20px;
+    // left: 10px;
+}
+
+.input {
+    width: 300px;
+    appearance: none;
+    font-size: 1rem;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 2px solid var(--main-color);
+    border-radius: 25px;
+    color: var(--main-color);
+    font-weight: 450;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+    &:focus {
+        outline: none !important;
+        //border: 2px solid var(--main-color) !important;
+        box-shadow: 0px 0px 15px rgba($color: #3d50f5, $alpha: 0.3);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+}

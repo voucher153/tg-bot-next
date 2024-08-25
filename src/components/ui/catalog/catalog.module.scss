@@ -1,8 +1,54 @@
-.catalog {
+.products {
     display: grid;
     grid-template-columns: repeat(2, 170px);
     column-gap: 10px;
     row-gap: 21px;
     grid-auto-rows: 230px;
     overflow: hidden;
+    margin: 0 0 40px 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    width: 45px;
+}
+
+.paginator, .cart {
+    transition: all 0.3s ease-in-out;
+}
+
+.paginator {
+    margin: 0 0 50px 0;
+}
+
+.cart {
+    margin: 0 0 100px 0;
+}
+
+.button {
+    position: fixed;
+    width: 100vw;
+    bottom: -100%;
+    left: 0;
+    animation: buttonFrom 0.3s forwards;
+    height: 50px;
+    //background-color: rgb(69, 201, 51);
+    background-color: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+@keyframes buttonFrom {
+    from {
+        bottom: -100%;
+    }
+    to {
+        bottom: 50px;
+    }
 }

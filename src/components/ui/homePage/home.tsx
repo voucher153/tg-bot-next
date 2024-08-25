@@ -8,50 +8,45 @@ import { CatalogPage } from "../catalog/catalog"
 import { webAppContext } from "@/app/context"
 import { useRouter } from "next/navigation"
 import { authService } from "@/services/auth/auth.service"
-import { TypePaginationsProducts } from "@/types/product.interface"
+import { EnumProductSort, TypePaginationsProducts } from "@/types/product.interface"
+import { CatalogHeader } from '../catalog/catalog-header/catalog-header'
+import { ICategory } from '@/types/category.interface'
+import { useActions } from '@/hooks/useActions'
+import { LayoutGrid } from 'lucide-react'
+import { Footer } from '@/components/utils/footer/footer'
 
-export const HomePage: FC<TypePaginationsProducts> = ({products, length}) => {
-    
-    const app = useContext(webAppContext);
+interface IHomePage extends TypePaginationsProducts {
+    categories: ICategory[]
+}
 
-    const onClose = () => {
-        app.close();
-    };
+export const HomePage: FC<IHomePage> = ({products, length, categories}) => {
 
     const { push } = useRouter();
 
-    const { mutate } = useMutation({
-        mutationKey: ["logout"],
-        mutationFn: () => authService.logout(),
-        onSuccess() {
-            push("/login");
-        },
-    });
-
-    const onSub = async () => {
-        debugger;
-        mutate();
-    };
-
-    const {data, isLoading, isSuccess} = useQuery({
-        queryKey: ['products'],
-        queryFn: () => productService.getAll()
-    })
-
-    console.log(data)
-
-    const [isClient, setIsClient] = useState(false)
+    const {addCategories} = useActions()
 
     useEffect(() => {
-        setIsClient(true)
+        addCategories(categories)
     }, [])
 
+    const [searchTerm, setSearchTerm] = useState<string>('')
+    const [sortType, setSortType] = useState<EnumProductSort>(EnumProductSort.NEWEST)
+
     return (
-        <div className={s.wrapper}>
-            <button onClick={onClose}>close</button>
-            <button onClick={onSub}>logout</button>
-            Home
-                <CatalogPage products={products || []} />     
-        </div>
+        <>
+            <CatalogHeader 
+                searchTerm={searchTerm} 
+                setSearchTerm={setSearchTerm}
+                setSortType={setSortType}
+                sortType={sortType}
+            />
+            <div className={s.wrapper}>
+                <CatalogPage 
+                    searchTerm={searchTerm} 
+                    data={{products, length}} 
+                    sortType={sortType}
+                />     
+            </div>
+        </>
     )
 }

@@ -1,0 +1,96 @@
+.wrapper {
+    background-color: #f1f1f1;
+    width: 100vw;
+    height: 100vh;
+}
+
+.logo {
+    transform: translateY(-5px) translateX(-20px);
+}
+
+.header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.edit {
+    background-color: var(--main-color);
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 15px;
+    width: 100px;
+    color: #fff;
+    font-size: 13px;
+}
+
+.text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+
+
+.header, .products {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 0 20px;
+}
+
+
+
+.products {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 50px 0;
+}
+
+
+
+
+.final-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0 0 0;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: 600;
+    color: #3a3a3a;
+}
+
+.button {
+    position: fixed;
+    width: 100vw;
+    bottom: -100%;
+    left: 0;
+    animation: buttonFrom 0.3s forwards;
+    height: 50px;
+    //background-color: rgb(69, 201, 51);
+    background-color: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+@keyframes buttonFrom {
+    from {
+        bottom: -100%;
+    }
+    to {
+        bottom: 0;
+    }
+}

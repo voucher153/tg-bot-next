@@ -1,3 +1,20 @@
 .wrapper {
     padding: 17px;
 }
+
+.header {
+    background-color: #fff;
+    position: sticky;
+    top: 10px;
+    width: 100%;
+    box-shadow: 0px 4px 18px 0px rgba(7, 60, 73, 0.12);
+    border-radius: 50px;
+    border: 1px solid green;
+    z-index: 10000000;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(0);
+    &--hidden {
+        top: -100%;
+        transition: all 0.3s ease-in-out;
+    }
+}

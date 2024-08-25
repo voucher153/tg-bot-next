@@ -1,0 +1,35 @@
+
+.input {
+    width: 100%;
+    appearance: none;
+    font-size: 1rem;
+    padding: 5px 15px;
+    background-color: #f1f1f1;
+    //border: 1px solid var(--main-color);
+    border-radius: 8px;
+    color: var(--main-color);
+    font-weight: 450;
+    font-size: 14px;
+    cursor: pointer;
+    caret-color: var(--main-color);
+    transition: box-shadow 0.3s ease-in-out;
+    &:focus {
+        outline: none !important;
+        //border: 2px solid var(--main-color) !important;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+}
+
+.input-block {
+    width: 100%;
+    position: relative;
+    margin: 0 0 8px 0;
+}
+
+.cross {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    //transform: rotate(45deg) !important;
+    cursor: pointer;
+}

@@ -5,13 +5,15 @@ const BASE_URL = '/product'
 
 export const productService = {
     async getAll(queryData = {} as TypeProductDataFilters) {
-        return axiosWithAuth.get<TypePaginationsProducts>(BASE_URL, {
+        const {data} = await axiosWithAuth.get<TypePaginationsProducts>(BASE_URL, {
             params: queryData
         })
+
+        return data
     },
 
     async getById(id: string) {
-        return axiosWithAuth.get<IProduct[]>(`${BASE_URL}/${id}`)
+        return axiosWithAuth.get<IProduct>(`${BASE_URL}/${id}`)
     },
 
     async getBySlug(slug: string) {
@@ -28,7 +30,14 @@ export const productService = {
     },
 
     async update(id: string, data: TypeProductData) {
-        return axiosWithAuth.put(`${BASE_URL}/${id}`, data)
+        debugger
+        const formData = new FormData()
+        for (const [key, value] of Object.entries(data)) {
+            formData.append(key, value)
+        }
+        return axiosWithAuth.put(`${BASE_URL}/${id}`, formData, {
+            headers: {"Content-Type": "multipart/form-data"}
+        })
     },
 
     async delete(id: string) {

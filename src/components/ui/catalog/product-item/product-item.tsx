@@ -15,14 +15,17 @@ export const ProductItem: FC<{product: IProduct}> = ({product}) => {
         cartItem => cartItem.product.id === product.id
     )
 
-    console.log(items)
-
     return (
         <div className={s['item-wrapper']}>
+            {product.new ? (
+                <div className={s.new}>
+                    NEW
+                </div>
+            ) : null}
             <div className={s.price}>
-                {product.price}.00 ₽
+                {product.price} ₽
             </div>
-            <div>
+            <div className={s['img-block']}>
                 <Image 
                     src={product.imageUrl} 
                     width={130} 
@@ -68,7 +71,7 @@ export const ProductItem: FC<{product: IProduct}> = ({product}) => {
                                                 currentElement.quantity == 1 ? 
                                                     (
                                                         removeFromCart({id: currentElement.id})
-                                                    ) : (changeQuantity({id: currentElement.id, type: 'minus'})
+                                                    ) : (changeQuantity({id: currentElement.id, type: 'minus', itemPrice: product.price})
                                                     )
                                             }}
                                         >
@@ -82,7 +85,7 @@ export const ProductItem: FC<{product: IProduct}> = ({product}) => {
                                         <div 
                                             className={s.plus}
                                             onClick={() => {
-                                                changeQuantity({id: currentElement.id, type: 'plus'})
+                                                changeQuantity({id: currentElement.id, type: 'plus', itemPrice: product.price})
                                             }}
                                         >
                                             <Plus />

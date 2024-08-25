@@ -30,7 +30,6 @@ const formSchema = z.object({
         }),
     code: z.string(),
     type: z.string().min(1, 'nothing'),
-    username: z.string().min(1, 'nothing')
 })
 
 export const AuthForm = ({type}: {type: 'register' | 'login'}) => {
@@ -103,13 +102,6 @@ export const AuthForm = ({type}: {type: 'register' | 'login'}) => {
                 <Input 
                     name="phone"
                     placeholder="Ваш номер телефона"
-                    register={register}
-                    type="text"
-                    errors={errors}
-                />
-                <Input 
-                    name="username"
-                    placeholder="username"
                     register={register}
                     type="text"
                     errors={errors}

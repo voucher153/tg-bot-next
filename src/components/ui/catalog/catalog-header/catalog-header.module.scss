@@ -1,0 +1,46 @@
+
+.header {
+    background-color: #fff;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    padding: 10px 20px;
+    border-bottom: 1px solid #9b9b9b;
+    height: 80px;
+    z-index: 10000000;
+    transition: all 0.5s ease-in-out;
+
+    &_hidden {
+        top: -50px;
+        transition: all 0.5s ease-in-out;
+        opacity: 0;
+    }
+}
+
+.back {
+    width: 35px;
+    height: 35px;
+    color: var(--main-color);
+}
+
+.input-block {
+    display: flex;
+    align-items: center;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.low-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

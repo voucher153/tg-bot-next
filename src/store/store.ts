@@ -11,12 +11,14 @@ import {
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { userSlice } from './user/user.slice';
 import { cartSlice } from './cart/cart.slice';
+import { categorySlice } from './category/category.slice';
 
 const isClient = typeof window != 'undefined'
 
 const combinedReducers = combineReducers({
     cart: cartSlice.reducer,
-    user: userSlice.reducer
+    user: userSlice.reducer,
+    category: categorySlice.reducer
 })
 
 let mainReducer = combinedReducers

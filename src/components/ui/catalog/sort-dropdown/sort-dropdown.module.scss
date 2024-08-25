@@ -1,0 +1,16 @@
+.select {
+    outline: none;
+    display: flex;
+    align-items: center;
+    gap: 5px
+}
+
+.icon {
+    color: var(--main-color);
+}
+
+.text {
+    font-weight: 600;
+    color: #868686;
+    font-size: 14px;
+}

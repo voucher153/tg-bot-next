@@ -9,20 +9,17 @@ import s from './admin-list.module.scss'
 interface IAdminList {
     listItems?: IListItem[]
     isLoading: boolean
-    removeHandler: (id: string) => void
+    removeHandler?: (id: string) => void
 }
 
-const AdminList: FC<IAdminList> = ({
+export const AdminList: FC<IAdminList> = ({
     isLoading,
     removeHandler,
     listItems
 }) => {
     return (
-        <div>
-            {isLoading ? (
-                <Loader />
-            ) : listItems?.length ? (
-                listItems.map(listItem => (
+        <div className={s.list}>
+                {listItems!.map(listItem => (
                     <AdminListItem
                         key={listItem.id}
                         removeHandler={
@@ -31,10 +28,7 @@ const AdminList: FC<IAdminList> = ({
                         }
                         listItem={listItem}
                     />
-                ))
-            ) : (
-                <div className={s.notFound}>Elements not found</div>
-            )}
+                ))}
         </div>
     )
 }

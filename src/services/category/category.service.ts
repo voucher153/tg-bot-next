@@ -1,5 +1,5 @@
 import { axiosWithAuth } from "../../api/interceptors"
-import { ICategory } from "../../types/category.interface"
+import { ICategory, UpdateCat } from "../../types/category.interface"
 
 const BASE_URL = '/category'
 
@@ -9,7 +9,7 @@ export const categoryService = {
     },
 
     async getById(id: string) {
-        return axiosWithAuth.get<ICategory[]>(`${BASE_URL}/${id}`)
+        return axiosWithAuth.get<ICategory>(`${BASE_URL}/${id}`)
     },
 
     async getBySlug(slug: string) {
@@ -20,8 +20,8 @@ export const categoryService = {
         return axiosWithAuth.post(BASE_URL) 
     },
 
-    async update(id: string, categoryName: string) {
-        return axiosWithAuth.put(`${BASE_URL}/${id}`, categoryName)
+    async update(id: string, data: UpdateCat) {
+        return axiosWithAuth.put(`${BASE_URL}/${id}`, data)
     },
 
     async delete(id: string) {

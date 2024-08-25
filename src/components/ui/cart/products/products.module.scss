@@ -1,0 +1,25 @@
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    overflow: hidden;
+}
+
+.closed {
+    height: 505px;
+}
+
+.opened {
+    height: auto !important;
+}
+
+.show {
+    margin: 10px 0 0 0;
+    transform: translateY(-10px);
+    color: var(--main-color);
+    font-weight: 500;
+}
+
+.title {
+    font-weight: 500;
+}

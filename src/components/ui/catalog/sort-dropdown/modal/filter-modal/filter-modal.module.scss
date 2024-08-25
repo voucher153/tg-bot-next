@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text {
+    font-size: 20px;
+    transform: translateY(10px);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.options {
+    display: flex;
+    overflow-y: scroll;
+    flex-direction: column;
+    gap: 10px
+}
+
+.button {
+    width: 150px;
+    margin: 0 0 30px 0;
+}
+
+.select {
+
+}

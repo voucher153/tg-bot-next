@@ -1,0 +1,29 @@
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.main-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.text-info {
+    font-size: 14px;
+}
+
+.quantity {
+    display: inline-block;
+    margin: 0 0 0 5px;
+    color: #526ad8;
+    font-weight: 700;
+}
+
+.price {
+    font-size: 14px;
+    font-weight: 600;
+    color: #3a3a3a;
+}

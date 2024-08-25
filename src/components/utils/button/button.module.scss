@@ -4,5 +4,22 @@
     font-size: 1rem;
     color: #fff;
     border-radius: 25px;
+    text-align: center;
     width: 100%;
+}
+
+.pagination {
+    border-radius: 50% !important;
+    padding: 0;
+    color: var(--main-color);
+    background-color: #fff;
+    font-size: 13px !important;
+    border: 1px solid var(--main-color);
+    width: 30px;
+    height: 30px;
+}
+
+.current {
+    color: #fff;
+    background-color: var(--main-color) !important;
 }

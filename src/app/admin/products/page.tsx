@@ -1,8 +1,20 @@
-import { ProductsPage } from "@/components/ui/admin/products/products"
+import { Search } from "@/components/ui/catalog/catalog-header/search/search"
+import { useState } from "react"
+import { ProductsPage } from "./Products"
+import { ProductsWrapper } from "./ProductsWrapper"
 
 function Products() {
+    
+    //const [searchTerm, setSearchTerm] = useState('')
+
     return (
-        <ProductsPage />
+        <>  
+            {/* <div className={s.search}>
+                <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            </div>
+            <ProductsPage searchTerm={searchTerm} /> */}
+            <ProductsWrapper />
+        </>
     )
 }
 

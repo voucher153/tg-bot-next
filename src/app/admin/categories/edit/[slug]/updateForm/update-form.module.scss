@@ -1,0 +1,42 @@
+.form-wrapper {
+    margin: 100px 0 0 0;
+}
+
+.back {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 45px;
+    left: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.input {
+    margin-top: 10px;
+}
+
+.radio-title {
+    font-weight: 500;
+}
+
+.radio {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    width: 300px;
+    margin-top: 10px;
+}
+
+.select {
+    outline: none;
+}

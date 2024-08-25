@@ -1,5 +1,4 @@
 export interface IAuthForm {
-    username: string
     company: string,
     phone: string,
     code?: string,
@@ -8,7 +7,6 @@ export interface IAuthForm {
 
 export interface IUserPersonal {
     id: number,
-    username: string
     company: string,
     phone: string,
     type?: 'admin' | 'user'

@@ -1,8 +1,8 @@
 export interface IListItem {
     id: string
     editUrl?: string
-    viewUrl?: string
-    items: string[]
+    items: (string | boolean)[]
+    length?: number
 }
 
 export interface IAdminListItem {
