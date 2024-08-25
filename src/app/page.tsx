@@ -1,5 +1,6 @@
 import { HomePage } from "@/components/ui/homePage/home";
 import { Footer } from "@/components/utils/footer/footer";
+import { Loader } from "@/components/utils/loader/loader";
 import { categoryService } from "@/services/category/category.service";
 import { productService } from "@/services/product/product.service";
 import { IProduct, TypePaginationsProducts } from "@/types/product.interface";
@@ -21,7 +22,10 @@ const fetchData = async () => {
 export default async function Home() {
 
   const {data, dataCategories} = await fetchData()
-  debugger
+
+  if (!data || !dataCategories) {
+    return <Loader />
+  }
 
   return (
     <>
