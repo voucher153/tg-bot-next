@@ -21,7 +21,7 @@ export const useAdminProducts = ({page, searchTerm}: TypeProductDataFilters) => 
             return {
                 id: product.id,
                 length,
-                editUrl: `${pathName}/edit/${product.id}`,
+                editUrl: `${pathName}/products/edit/${product.id}`,
                 items: [
                     product.name,
                     product.articule,
