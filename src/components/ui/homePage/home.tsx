@@ -14,6 +14,7 @@ import { ICategory } from '@/types/category.interface'
 import { useActions } from '@/hooks/useActions'
 import { LayoutGrid } from 'lucide-react'
 import { Footer } from '@/components/utils/footer/footer'
+import Cookies from 'js-cookie'
 
 interface IHomePage extends TypePaginationsProducts {
     categories: ICategory[]
@@ -24,6 +25,8 @@ export const HomePage: FC<IHomePage> = ({products, length, categories}) => {
     const { push } = useRouter();
 
     const {addCategories} = useActions()
+
+    if (Cookies.get('type') === 'admin') push('/admin')
 
     useEffect(() => {
         addCategories(categories)
