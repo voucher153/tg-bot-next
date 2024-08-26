@@ -3,9 +3,9 @@
     height: 30px;
     border: 2px solid var(--main-color);
     border-radius: 10px;
-    transform: translateX(340px);
     display: flex;
     justify-content: center;
-    transform: translate(345px, 15px);
+    margin: 0 0 0 20px;
+    transform: translateY(15px);
     align-items: center;
 }
