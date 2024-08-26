@@ -14,7 +14,7 @@ export const CartItem: FC<{cartItem: ICartItem}> = ({cartItem}) => {
                 </div>
             </div>
             <div className={s.price}>
-                <span>{cartItem.price}₽</span>
+                <span>{cartItem.price.toFixed(2)}₽</span>
             </div>
         </div>
     )
