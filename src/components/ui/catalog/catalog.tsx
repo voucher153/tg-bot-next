@@ -18,13 +18,12 @@ import { useRouter } from "next/navigation"
 import Link from "next/link"
 
 interface ICatalog {
-    data: TypePaginationsProducts
     isLoading?: boolean
     searchTerm: string
     sortType: EnumProductSort
 }
 
-export const CatalogPage: FC<ICatalog> = ({data, sortType, searchTerm}) => {
+export const CatalogPage: FC<ICatalog> = ({sortType, searchTerm}) => {
 
     const {push} = useRouter()
 
@@ -43,7 +42,6 @@ export const CatalogPage: FC<ICatalog> = ({data, sortType, searchTerm}) => {
                 categoryNames: filter,
                 searchTerm
             })},
-        initialData: data,
     })
 
     if (isLoading || isFetching) {
@@ -56,9 +54,9 @@ export const CatalogPage: FC<ICatalog> = ({data, sortType, searchTerm}) => {
         <section className={s.catalog}>
             <>
                 <div className={s.products}>
-                    { responce.products.length ?
+                    { responce!.products.length ?
                     (
-                        responce.products.map(product => <ProductItem key={product.id} product={product} />)
+                        responce!.products.map(product => <ProductItem key={product.id} product={product} />)
                     ) : (
                         <div>Продуктов нет</div>
                     )}
@@ -68,7 +66,7 @@ export const CatalogPage: FC<ICatalog> = ({data, sortType, searchTerm}) => {
                         currentPage={page} 
                         pageSize={10} 
                         setPage={setPage} 
-                        totalItemsCount={responce.length} />
+                        totalItemsCount={responce!.length} />
                 </div>
                 {cart.items.length > 0 ? (
                     <Link href={'/cart'} className={s.button}>

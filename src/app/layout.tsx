@@ -5,6 +5,7 @@ import Script from "next/script";
 import { Providers } from "./providers";
 import { Toaster } from 'sonner'
 import { Footer } from "@/components/utils/footer/footer";
+import { Suspense } from "react";
 
 //const inter = Inter({ subsets: ["latin"] });
 
@@ -38,9 +39,11 @@ export default function RootLayout({
         <Script src="https://telegram.org/js/telegram-web-app.js" strategy="beforeInteractive" />
       </head>
       <body className={`${noto.className} ${montserrat.className}`} suppressHydrationWarning={true}>
-        <Providers>
-          {children}
-        </Providers>
+        <Suspense fallback={<>Loading...</>}>
+          <Providers>
+            {children}
+          </Providers>
+        </Suspense>
         <Toaster />
       </body>
     </html>

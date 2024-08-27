@@ -6,34 +6,24 @@ import { productService } from "@/services/product/product.service";
 import { IProduct, TypePaginationsProducts } from "@/types/product.interface";
 import { useState } from "react";
 
-export const revalidate = 3600
+//export const revalidate = 3600
 
-const fetchData = async () => {
-  const data = await productService.getAll({
-    page: 1,
-    perPage: 10
-  })
+// const fetchData = async () => {
+//   const data = await productService.getAll({
+//     page: 1,
+//     perPage: 10
+//   })
 
-  const dataCategories = await categoryService.getAll()
+//   const dataCategories = await categoryService.getAll()
 
-  return {data, dataCategories}
-}
+//   return {data, dataCategories}
+// }
 
-export default async function Home() {
-
-  const {data, dataCategories} = await fetchData()
-
-  if (!data || !dataCategories) {
-    return <Loader />
-  }
+export default function Home() {
 
   return (
     <>
-    <HomePage 
-            products={data.products} 
-            length={data.length} 
-            categories={dataCategories.data} 
-        />
+    <HomePage />
       <Footer />
     </>
   );

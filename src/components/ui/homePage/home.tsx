@@ -15,25 +15,32 @@ import { useActions } from '@/hooks/useActions'
 import { LayoutGrid } from 'lucide-react'
 import { Footer } from '@/components/utils/footer/footer'
 import Cookies from 'js-cookie'
+import { categoryService } from '@/services/category/category.service'
+import { Loader } from '@/components/utils/loader/loader'
 
-interface IHomePage extends TypePaginationsProducts {
-    categories: ICategory[]
-}
-
-export const HomePage: FC<IHomePage> = ({products, length, categories}) => {
+export const HomePage = () => {
 
     const { push } = useRouter();
 
     const {addCategories} = useActions()
 
-    if (Cookies.get('type') === 'admin') push('/admin')
-
-    useEffect(() => {
-        addCategories(categories)
-    }, [])
-
     const [searchTerm, setSearchTerm] = useState<string>('')
     const [sortType, setSortType] = useState<EnumProductSort>(EnumProductSort.NEWEST)
+
+    const {data, isFetching} = useQuery({
+        queryKey: ['get all categories'],
+        queryFn: () => categoryService.getAll()
+    })
+
+    if (isFetching) {
+        return <Loader />
+    }
+
+    if (Cookies.get('type') === 'admin') push('/admin')
+
+    if (data) {
+        addCategories(data?.data!)
+    }
 
     return (
         <>
@@ -45,8 +52,7 @@ export const HomePage: FC<IHomePage> = ({products, length, categories}) => {
             />
             <div className={s.wrapper}>
                 <CatalogPage 
-                    searchTerm={searchTerm} 
-                    data={{products, length}} 
+                    searchTerm={searchTerm}
                     sortType={sortType}
                 />     
             </div>
