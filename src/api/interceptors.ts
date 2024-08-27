@@ -7,7 +7,7 @@ import { getAccessToken, removeTokenFromStorage } from '../services/auth/auth-to
 
 const options: CreateAxiosDefaults = {
     //baseURL: 'https://tg-bot-next-back.onrender.com/',
-    baseURL: process.env.SERVER_URL,
+    baseURL: process.env.SERVER_URL || "https://tg-bot-next-back-1.onrender.com/",
     headers: getContentType(),
     withCredentials: true
 }
