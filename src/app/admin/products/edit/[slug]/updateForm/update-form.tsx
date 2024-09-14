@@ -47,8 +47,6 @@ interface IUpdateCategoryForm {
 }
 
 export const UpdateForm: FC<IUpdateProductForm> = ({defaultValues, src, id}) => {
-    
-    console.log(src)
 
     const {push, back} = useRouter()
 
@@ -66,25 +64,20 @@ export const UpdateForm: FC<IUpdateProductForm> = ({defaultValues, src, id}) => 
         mutationKey: ['update product'],
         mutationFn: (data: TypeProductData) => productService.update(id, data),
         onSuccess() {
-            debugger
             toast.success('Изменения применены')
             reset()
             push('/admin')
         },
         onError(error) {
-            debugger
             if (isAxiosError(error)) {
                 toast.error(error.response?.data!.message)
             }
         }
     })
 
-    console.log(defaultValues)
-
     const onSubmit: SubmitHandler<TypeProductData> = (data) => {
         if (data.file) {data.imageUrl = ''}
         console.log(data)
-        debugger
         mutate(data)
     }
 
