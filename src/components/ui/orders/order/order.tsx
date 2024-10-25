@@ -78,7 +78,7 @@ export const Order: FC<{order: IOrder}> = ({order}) => {
                         </div>
                     </div>
                 </div>
-                <MoreInfo order={order} date={`${checkMonth()} ${order.createdAt.slice(8, 10)}, ${order.createdAt.slice(0, 4)}`} />
+                <MoreInfo order={order} month={`${checkMonth()}`} date={`${order.createdAt.slice(8, 10)}, ${order.createdAt.slice(0, 4)}`} />
             </div>
         </>
         
