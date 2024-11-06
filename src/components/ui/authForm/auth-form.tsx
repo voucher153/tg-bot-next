@@ -94,7 +94,7 @@ export const AuthForm = ({type}: {type: 'register' | 'login'}) => {
             <form className={s['form-block']} onSubmit={handleSubmit(onSubmit)}>
                 <Input 
                     name="company"
-                    placeholder="Название вашей компании"
+                    placeholder="Юридическое лицо (ИП)"
                     register={register}
                     type="text"
                     errors={errors}
