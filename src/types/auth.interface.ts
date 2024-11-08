@@ -2,7 +2,8 @@ export interface IAuthForm {
     company: string,
     phone: string,
     code?: string,
-    type?: 'admin' | 'user'
+    type?: 'admin' | 'user',
+    password?: string
 }
 
 export interface IUserPersonal {

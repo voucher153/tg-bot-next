@@ -4,7 +4,7 @@ import { FieldErrors, UseFormRegister } from "react-hook-form";
 
 export interface IInput {
     register: UseFormRegister<IAuthForm>
-    name: "type" | "company" | "phone" | "code" 
+    name: "type" | "company" | "phone" | "code" | "password" 
     type: string
     placeholder?: string
     defaultValue?: string

@@ -29,6 +29,7 @@ const formSchema = z.object({
             message: 'Неправильный номер телефона'
         }),
     code: z.string(),
+    password: z.string(),
     type: z.string().min(1, 'nothing'),
 })
 
@@ -48,13 +49,16 @@ export const AuthForm = ({type}: {type: 'register' | 'login'}) => {
         resolver: zodResolver(formSchema),
         defaultValues: {
             type: 'user',
-            code: ''
+            code: '',
+            password: ''
         }
     })
 
     useEffect(() => {
         if (typeValue === 'Клиент') {
             setValue('code', '')
+        } else if (typeValue === 'Админ') {
+            setValue('password', '')
         }
     }, [typeValue])
 
@@ -93,13 +97,6 @@ export const AuthForm = ({type}: {type: 'register' | 'login'}) => {
             </div>
             <form className={s['form-block']} onSubmit={handleSubmit(onSubmit)}>
                 <Input 
-                    name="company"
-                    placeholder="Юридическое лицо (ИП)"
-                    register={register}
-                    type="text"
-                    errors={errors}
-                />
-                <Input 
                     name="phone"
                     placeholder="Ваш номер телефона"
                     register={register}
@@ -120,7 +117,15 @@ export const AuthForm = ({type}: {type: 'register' | 'login'}) => {
                         placeholder='Код'
                         errors={errors}
                     />
-                    ) : null
+                    ) : (
+                        <Input 
+                            register={register}
+                            name="password"
+                            type="password"
+                            placeholder='Пароль'
+                            errors={errors}
+                        />
+                    )
                 }
                 {type === 'register' ? (
                     <button className={s.button} type="submit">Зарегистрироваться</button>
