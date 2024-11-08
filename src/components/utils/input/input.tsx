@@ -18,7 +18,7 @@ export const Input = ({register, name, type, placeholder, defaultValue="", error
         setActive(!active)
     }
 
-    const checkType = (type: string, name: 'code' | 'type' | 'company' | 'phone' | "username", active: boolean) => {
+    const checkType = (type: string, name: 'code' | 'type' | 'company' | 'phone' | "username" | "password", active: boolean) => {
         if (name === 'code') {
             if (active) {
                 return 'text'
