@@ -21,7 +21,6 @@ import logo from '../../../../public/img/Frame.svg'
 const phoneValidation = new RegExp(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/)
 
 const formSchema = z.object({
-    company: z.string().min(1, {message: 'Название компании обязательно'}),
     phone: 
         z.string()
         .min(1, {message: 'Номер телефона обязателен'})
@@ -84,9 +83,10 @@ export const AuthForm = ({type}: {type: 'register' | 'login'}) => {
             }
         }
     })
-
+    console.log(errors)
     const onSubmit: SubmitHandler<IAuthForm> = (data) => {
         console.log(data)
+        debugger
         mutate(data)
     }
 
