@@ -26,7 +26,9 @@ interface IUpdateProductForm {
         imageUrl: string,
         new: string
         articule: string
+        quantity: string
         measurement: string
+        cratn: string
     }
     src?: string,
     id: string
@@ -156,6 +158,24 @@ export const UpdateForm: FC<IUpdateProductForm> = ({defaultValues, src, id}) => 
                             name="price"
                             type="text"
                             placeholder="Цена"
+                        />
+                    </div>
+                    <div className={s.input}>
+                        <InputUpdate 
+                            register={register}
+                            errors={errors}
+                            name="cratn"
+                            type="text"
+                            placeholder="Кратность"
+                        />
+                    </div>
+                    <div className={s.input}>
+                        <InputUpdate 
+                            register={register}
+                            errors={errors}
+                            name="quantity"
+                            type="text"
+                            placeholder="Количество"
                         />
                     </div>
                     <button className={s.button} type="submit">

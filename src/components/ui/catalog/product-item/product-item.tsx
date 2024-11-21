@@ -3,13 +3,15 @@ import { useCart } from "@/hooks/useCart";
 import { IProduct } from "@/types/product.interface";
 import { Minus, Plus } from "lucide-react";
 import Image from "next/image";
-import { FC } from "react";
+import { FC, useState } from "react";
 import s from './product-item.module.scss'
 
 export const ProductItem: FC<{product: IProduct}> = ({product}) => {
     
     const { addToCart, removeFromCart, changeQuantity } = useActions()
     const { items } = useCart()
+
+    const [productLeft, setProductLeft] = useState(product.quantity)
 
     const currentElement = items.find(
         cartItem => cartItem.product.id === product.id
@@ -51,15 +53,17 @@ export const ProductItem: FC<{product: IProduct}> = ({product}) => {
                 > */}
                     
                         <div className={s.buttons}>
-                            <div
+                            {product.quantity > +product.cratn ? 
+                            (<div
                                 className={currentElement ? s.added : s.add}
                                 onClick={() => {
+                                    
                                     currentElement ? 
                                         null :
                                         addToCart({
                                             product,
-                                            quantity: 1,
-                                            price: product.price
+                                            quantity: +product.cratn,
+                                            price: product.price * +product.cratn
                                         })
                                 }}
                             >
@@ -68,10 +72,10 @@ export const ProductItem: FC<{product: IProduct}> = ({product}) => {
                                         <div
                                             className={s.minus}
                                             onClick={() => {
-                                                currentElement.quantity == 1 ? 
+                                                currentElement.quantity == +product.cratn ? 
                                                     (
                                                         removeFromCart({id: currentElement.id})
-                                                    ) : (changeQuantity({id: currentElement.id, type: 'minus', itemPrice: product.price})
+                                                    ) : (changeQuantity({id: currentElement.id, type: 'minus', itemPrice: product.price, cratn: +product.cratn})
                                                     )
                                             }}
                                         >
@@ -82,19 +86,21 @@ export const ProductItem: FC<{product: IProduct}> = ({product}) => {
                                                 {currentElement.quantity}
                                             </div>
                                         )}
-                                        <div 
+                                        {productLeft > +product.cratn ? 
+                                        (<div 
                                             className={s.plus}
                                             onClick={() => {
-                                                changeQuantity({id: currentElement.id, type: 'plus', itemPrice: product.price})
+                                                changeQuantity({id: currentElement.id, type: 'plus', itemPrice: product.price, cratn: +product.cratn})
+                                                setProductLeft(productLeft - +product.cratn)
                                             }}
                                         >
                                             <Plus />
-                                        </div>
+                                        </div>) : null}
                                     </div>
                                 ) : (
                                     <span className={s['add-text']}>Добавить</span>
                                 )}
-                            </div>
+                            </div>) : <span>Товара нет</span>}
                         </div>
                 {/* </button> */}
             </div>

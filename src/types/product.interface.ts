@@ -5,8 +5,10 @@ export interface IProduct {
     name: string,
     articule: string
     measurement: string
+    quantity: number
     price: number,
     imageUrl: string,
+    cratn: string
     categoryId: string,
     createdAt: string
     new: boolean
@@ -22,6 +24,8 @@ export type TypeProductData = {
     new: string
     measurement: string
     articule: string
+    quantity: string
+    cratn: string
 }
 
 export type TypeProductDataFilters = {

@@ -8,7 +8,6 @@ export interface IAuthForm {
 
 export interface IUserPersonal {
     id: number,
-    company: string,
     phone: string,
     type?: 'admin' | 'user'
 }
@@ -24,3 +23,5 @@ export interface IAuthResponce {
 
 
 export type TypeUserForm = Omit<IUserPersonal, 'id'> & { code?: string }
+
+export type TypeUserUpdateForm = Omit<IUserPersonal, 'id'> & { password?: string }

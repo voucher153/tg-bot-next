@@ -19,7 +19,7 @@ export const Input = ({register, name, type, placeholder, defaultValue="", error
     }
 
     const checkType = (type: string, name: 'code' | 'type' | 'company' | 'phone' | "username" | "password", active: boolean) => {
-        if (name === 'code') {
+        if (name === 'code' || name === 'password') {
             if (active) {
                 return 'text'
             }
@@ -28,7 +28,7 @@ export const Input = ({register, name, type, placeholder, defaultValue="", error
     }
 
     const checkName = () => {
-        if (name === 'code') {
+        if (name === 'code' || name === 'password') {
             if (active) {
                 return (
                     <svg 

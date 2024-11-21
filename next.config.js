@@ -10,7 +10,14 @@ const nextConfig = {
         ]
     },
     images: {
-        domains: ['res.cloudinary.com', 'picsum.photos', 'loremflickr.com'],
+        remotePatterns: [
+            {
+                protocol: 'http',
+                hostname: 'res.cloudinary.com',
+                port: '',
+                pathname: '**',
+            },
+        ],
     },
     env: {
         SERVER_URL: process.env.SERVER_URL,

@@ -20,21 +20,21 @@ import logo from '../../../../public/img/Frame.svg'
 
 const phoneValidation = new RegExp(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/)
 
-const formSchema = z.object({
-    phone: 
-        z.string()
-        .min(1, {message: 'Номер телефона обязателен'})
-        .regex(phoneValidation, {
-            message: 'Неправильный номер телефона'
-        }),
-    code: z.string(),
-    password: z.string(),
-    type: z.string().min(1, 'nothing'),
-})
-
 export const AuthForm = ({type}: {type: 'register' | 'login'}) => {
 
     const [typeValue, setTypeValue] = useState('Клиент')
+
+    const formSchema = z.object({
+        phone: 
+            (typeValue == 'Клиент' ? z.string()
+            .min(1, {message: 'Номер телефона обязателен'})
+            .regex(phoneValidation, {
+                message: 'Неправильный номер телефона'
+            }) : z.string()),
+        code: z.string(),
+        password: z.string(),
+        type: z.string().min(1, 'nothing'),
+    })
 
     const {
         register, 
@@ -58,6 +58,7 @@ export const AuthForm = ({type}: {type: 'register' | 'login'}) => {
             setValue('code', '')
         } else if (typeValue === 'Админ') {
             setValue('password', '')
+            setValue('phone', '')
         }
     }, [typeValue])
 
@@ -96,19 +97,21 @@ export const AuthForm = ({type}: {type: 'register' | 'login'}) => {
                 <Image src={logo} alt='logo' className={s.logo} />
             </div>
             <form className={s['form-block']} onSubmit={handleSubmit(onSubmit)}>
-                <Input 
-                    name="phone"
-                    placeholder="Ваш номер телефона"
-                    register={register}
-                    type="text"
-                    errors={errors}
-                />
+                {typeValue === 'Клиент' ? (
+                    <Input 
+                        name="phone"
+                        placeholder="Ваш номер телефона"
+                        register={register}
+                        type="text"
+                        errors={errors}
+                    />
+                    ) : null}
                 <Select 
-                    register={register} 
-                    setValue={setValue} 
-                    typeValue={typeValue} 
-                    setTypeValue={setTypeValue} 
-                />
+                        register={register} 
+                        setValue={setValue} 
+                        typeValue={typeValue} 
+                        setTypeValue={setTypeValue} 
+                    />
                 {typeValue === 'Админ' ? 
                     (<Input 
                         register={register}

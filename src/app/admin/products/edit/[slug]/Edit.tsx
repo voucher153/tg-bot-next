@@ -20,6 +20,8 @@ export const EditPageProduct = ({id}: {id: string}) => {
         new: String(+data?.new!),
         imageUrl: data?.imageUrl!,
         price: String(data?.price!),
+        quantity: String(data?.quantity),
+        cratn: String(data?.cratn)
     }
 
     return (

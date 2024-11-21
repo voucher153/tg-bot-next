@@ -12,11 +12,15 @@ export interface IOrder {
     status: EnumOrderStatus
     items: ICartItem[]
     user: IUser
+    date: string
+    company: string
 }
 
 export interface IOrderPost {
     status: string
     items: ICartItemPost[]
+    date: string
+    company: string
 }
 
 export type TypePaginationOrders = {

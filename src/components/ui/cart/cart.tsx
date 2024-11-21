@@ -15,8 +15,52 @@ import { isAxiosError } from 'axios'
 import { ICartItemPost } from '@/types/cart.interface'
 import { useActions } from '@/hooks/useActions'
 import { OrderProducts } from './products/products'
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import {z} from "zod"
+import { Controller, SubmitHandler, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider/LocalizationProvider'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import dayjs, { type Dayjs } from 'dayjs';
+import 'dayjs/locale/de';
+
+interface ICartForm {
+    date: Dayjs
+    company: string
+    //status: string
+    //items: ICartItemPost[]
+}
 
 export const CartPage = () => {
+
+    const itemsSchema = z.object({
+        productId: z.string(),
+        price: z.number(),
+        quantity: z.number()
+    })
+
+    const formSchema = z.object({
+        date: z.instanceof(dayjs as unknown as typeof Dayjs, {message: 'Обязательное поле'}),
+        company: z.string().min(1, {message: 'Обязательное поле'}),
+        // status: z.string(),
+        // items: z.array(itemsSchema)
+    })
+
+    const {
+        register,
+        control,
+        formState: {errors},
+        handleSubmit
+    } = useForm<ICartForm>({
+        mode: 'all',
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            date: '',
+            company: ''
+        }
+    })
+
+    
 
     const cart = useCart()
     const {back, push} = useRouter()
@@ -41,6 +85,20 @@ export const CartPage = () => {
         }
     })
 
+    const onSubmit: SubmitHandler<ICartForm> = (data) => {
+        const months = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря']
+        const date = `${data.date.date()} ${months[data.date.month()]} ${data.date.year()} года` 
+        const newData = {
+            date,
+            items,
+            status: 'new_order',
+            company: data.company
+        }
+        console.log(newData)
+        mutate(newData)
+        reset()
+    }
+
     const items: ICartItemPost[] = cart.items.map(item => {
         return {
             productId: item.product.id,
@@ -50,7 +108,7 @@ export const CartPage = () => {
     })
 
     return (
-        <div className={s.wrapper}>
+        <form onSubmit={handleSubmit(onSubmit)} className={s.wrapper}>
             <div className={s.content}>
                 <div className={s.header}>
                     <Image 
@@ -69,19 +127,42 @@ export const CartPage = () => {
                         <span className={s.price}>{price}₽</span>
                     </div>
                 </div>
+                <div className={s.form}>
+                    <div>
+                        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='de'>
+                            <Controller
+                                control={control}
+                                name="date"
+                                rules={{ required: true }}
+                                render={({ field }) => {
+                                    return (
+                                        <DatePicker
+                                            label="Дата"
+                                            
+                                            inputRef={field.ref}
+                                            onChange={(date) => {
+                                            field.onChange(date);
+                                            }}
+                                        />
+                                        );
+                                    }}
+                            />
+                        </LocalizationProvider>
+                        <div className={s.error}>{errors.date?.message}</div>
+                    </div>
+                    <div>
+                        <input 
+                            {...register('company', {required: true})}
+                            className={s.input}
+                            placeholder='Юридическо лицо (ИП)'
+                        />
+                        <div className={s.error}>{errors.company?.message}</div>
+                    </div>
+                </div>
             </div>
-            <div 
-                className={s.button} 
-                onClick={() => {
-                    mutate({
-                        status: 'new_order',
-                        items: items
-                    })
-                    reset()
-                }}
-            >
+            <button className={s.button}>
                 Заказать
-            </div>
-        </div>
+            </button>
+        </form>
     )
 }

@@ -24,14 +24,15 @@ export const cartSlice = createSlice({
         },
         changeQuantity: (state, action:
             PayloadAction<IChangeQuantityPayload>) => {
-                const { id, type, itemPrice } = action.payload
+                const { id, type, itemPrice, cratn } = action.payload
                 const item = state.items.find(item => item.id === id)
+                debugger
                 if (item) {
                     if (type === 'plus') {
-                        item.quantity++
-                        item.price = +item.price + +itemPrice
+                        item.quantity += cratn
+                        item.price = +item.price + +itemPrice * cratn
                     } else {
-                        item.quantity--
+                        item.quantity -= cratn
                         item.price = +item.price - +itemPrice
                     }
                 }

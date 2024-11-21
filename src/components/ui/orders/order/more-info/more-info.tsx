@@ -4,7 +4,7 @@ import s from './more-info.module.scss'
 import { CartItem } from "@/components/ui/cart/cart-item/cart-item"
 import { OrderProducts } from "@/components/ui/cart/products/products"
 
-export const MoreInfo: FC<{order: IOrder, date: string, month: string}> = ({order, month, date}) => {
+export const MoreInfo: FC<{order: IOrder, date: string, month: string, arriveDate: string}> = ({order, month, date, arriveDate}) => {
     
     let id: string = ''
 
@@ -32,9 +32,18 @@ export const MoreInfo: FC<{order: IOrder, date: string, month: string}> = ({orde
                     ID Заказа: {order.id}
                 </div>
                 <div className={s['addit-info']}>
-                    <span className={s.date}>Дата заказа:</span> 
-                    <span className={s['date-num']}>{month + date.slice(6)}</span>
-                    {/* <span>|</span> */}
+                    <div>
+                        <span className={s.date}>Дата заказа:</span> 
+                        <span className={s['date-num']}>{month + ' ' + date}</span>
+                    </div>
+                    <div>
+                        <span className={s.date}>Дата доставки:</span>
+                        <span className={s['date-num']}>{arriveDate}</span>
+                    </div>
+                    <div>
+                        <span className={s.date}>{'Юридическое лицо (ИП):'}</span>
+                        <span className={s['date-num']}>{order.company}</span>
+                    </div>
                     <div className={s['status-block']}>
                         <span className={checkStatus() == 'Новый заказ' ?
                             `${s.status} ${s.new}` :

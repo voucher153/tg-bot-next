@@ -1,6 +1,6 @@
 'use client'
 
-import { LayoutGrid, LogOut, ShoppingBag } from 'lucide-react'
+import { LayoutGrid, LogOut, ShoppingBag, User } from 'lucide-react'
 import s from './footer.module.scss'
 import { usePathname, useRouter } from 'next/navigation'
 import Link from 'next/link'
@@ -31,6 +31,9 @@ export const Footer = () => {
             </Link>
             <Link href={'/orders'} className={s.item}>
                 <ShoppingBag color={pathname == '/orders' ? '#3e4bc2' : '#525252'} />
+            </Link>
+            <Link href={'/user'} className={s.item}>
+                <User color={pathname == '/user' ? '#3e4bc2' : '#525252'} />
             </Link>
             <div onClick={onSub} className={s.item}>
                 <LogOut color='#525252' />
