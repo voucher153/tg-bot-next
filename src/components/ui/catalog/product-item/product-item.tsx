@@ -77,6 +77,7 @@ export const ProductItem: FC<{product: IProduct}> = ({product}) => {
                                                         removeFromCart({id: currentElement.id})
                                                     ) : (changeQuantity({id: currentElement.id, type: 'minus', itemPrice: product.price, cratn: +product.cratn})
                                                     )
+                                                setProductLeft(productLeft + +product.cratn)
                                             }}
                                         >
                                             <Minus />
