@@ -53,7 +53,7 @@ export const ProductItem: FC<{product: IProduct}> = ({product}) => {
                 > */}
                     
                         <div className={s.buttons}>
-                            {product.quantity > +product.cratn ? 
+                            {product.quantity >= +product.cratn ? 
                             (<div
                                 className={currentElement ? s.added : s.add}
                                 onClick={() => {
