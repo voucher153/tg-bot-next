@@ -3,7 +3,7 @@
     grid-template-columns: repeat(2, 170px);
     column-gap: 10px;
     row-gap: 21px;
-    grid-auto-rows: 230px;
+    grid-auto-rows: auto;
     overflow: hidden;
     margin: 0 0 40px 0;
 }
