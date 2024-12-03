@@ -9,16 +9,23 @@ import { IUserUpdate } from "./profile.interface"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { ProfileForm } from "./profile-form/profile-form"
 import s from './profile.module.scss'
+import { Loader } from "@/components/utils/loader/loader"
+import { useProfile } from "@/hooks/useProfile"
 
-export const Profile = async () => {
+export const Profile = () => {
     
-    const {data} = await userService.getProfile()
-    console.log(data)
+    
+    const {profile, isLoading} = useProfile()
 
-    return (
-        <div>
-            <div className={s.data}>Смена Данных</div>
-            <ProfileForm phone={data.phone} />
-        </div>
-    )
+    debugger
+    if (isLoading) {
+        return <Loader />
+    } else {
+        return (
+            <div>
+                <div className={s.data}>Смена Данных</div>
+                <ProfileForm phone={profile!.phone} />
+            </div>
+        )
+    }
 }
