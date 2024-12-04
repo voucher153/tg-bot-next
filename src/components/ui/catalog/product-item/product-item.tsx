@@ -25,7 +25,7 @@ export const ProductItem: FC<{product: IProduct}> = ({product}) => {
                 </div>
             ) : null}
             <div className={s.price}>
-                {product.price} ₽
+                {(+(product.price)).toFixed(2)} ₽
             </div>
             <div className={s['img-block']}>
                 <Image 

@@ -19,11 +19,10 @@ export const EditPageProduct = ({id}: {id: string}) => {
         measurement: data?.measurement!,
         new: String(+data?.new!),
         imageUrl: data?.imageUrl!,
-        price: String(data?.price!),
+        price: String((+(data?.price!)).toFixed(2)),
         quantity: String(data?.quantity),
         cratn: String(data?.cratn)
     }
-
     return (
         <UpdateForm
             defaultValues={defaultValues}
