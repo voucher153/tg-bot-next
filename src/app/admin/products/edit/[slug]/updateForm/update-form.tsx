@@ -96,7 +96,7 @@ export const UpdateForm: FC<IUpdateProductForm> = ({defaultValues, src, id}) => 
                             errors={errors}
                             name="name"
                             type="text"
-                            defaultValue=''
+                            defaultValue={defaultValues.name}
                             placeholder="Название"
                         />
                     </div>
@@ -106,7 +106,7 @@ export const UpdateForm: FC<IUpdateProductForm> = ({defaultValues, src, id}) => 
                             errors={errors}
                             name="categoryId"
                             type="text"
-                            defaultValue=''
+                            defaultValue={defaultValues.categoryId}
                             placeholder="ID Категории"
                         />
                     </div>
@@ -137,7 +137,7 @@ export const UpdateForm: FC<IUpdateProductForm> = ({defaultValues, src, id}) => 
                             errors={errors}
                             name="measurement"
                             type="text"
-                            defaultValue=''
+                            defaultValue={defaultValues.measurement}
                             placeholder="Ед. Измерения"
                         />
                     </div>
@@ -147,7 +147,7 @@ export const UpdateForm: FC<IUpdateProductForm> = ({defaultValues, src, id}) => 
                             errors={errors}
                             name="articule"
                             type="text"
-                            defaultValue=''
+                            defaultValue={defaultValues.articule}
                             placeholder="Артикул"
                         />
                     </div>
@@ -157,6 +157,7 @@ export const UpdateForm: FC<IUpdateProductForm> = ({defaultValues, src, id}) => 
                             errors={errors}
                             name="price"
                             type="text"
+                            defaultValue={defaultValues.price}
                             placeholder="Цена"
                         />
                     </div>
@@ -166,6 +167,7 @@ export const UpdateForm: FC<IUpdateProductForm> = ({defaultValues, src, id}) => 
                             errors={errors}
                             name="cratn"
                             type="text"
+                            defaultValue={defaultValues.cratn}
                             placeholder="Кратность"
                         />
                     </div>
@@ -175,6 +177,7 @@ export const UpdateForm: FC<IUpdateProductForm> = ({defaultValues, src, id}) => 
                             errors={errors}
                             name="quantity"
                             type="text"
+                            defaultValue={defaultValues.quantity}
                             placeholder="Количество"
                         />
                     </div>
