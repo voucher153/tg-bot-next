@@ -124,7 +124,7 @@ export const CartPage = () => {
                     <OrderProducts items={cart.items} />
                     <div className={s['final-price']}>
                         <span>Итого:</span>
-                        <span className={s.price}>{price}₽</span>
+                        <span className={s.price}>{price.toFixed(2)}₽</span>
                     </div>
                 </div>
                 <div className={s.form}>

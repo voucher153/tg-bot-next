@@ -22,7 +22,13 @@ const nextConfig = {
     env: {
         SERVER_URL: process.env.SERVER_URL,
         DOMAIN: process.env.DOMAIN
-    }
+    },
+    headers: [
+        {
+            key: 'Access-Control-Allow-Origin',
+            value: 'https://zhuravlevfactory.ru/'
+        }
+    ]
 }
 
 module.exports = withBundleAnalyzer(nextConfig)
