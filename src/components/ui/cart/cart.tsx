@@ -95,8 +95,12 @@ export const CartPage = () => {
             company: data.company
         }
         console.log(newData)
-        mutate(newData)
-        reset()
+        try {
+            mutate(newData)
+            reset()
+        } catch (err) {
+            alert(err)
+        }
     }
 
     const items: ICartItemPost[] = cart.items.map(item => {
