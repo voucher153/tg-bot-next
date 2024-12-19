@@ -4,7 +4,6 @@ import { FC } from "react"
 import s from './cart-item.module.scss'
 
 export const CartItem: FC<{cartItem: ICartItem}> = ({cartItem}) => {
-
     return (
         <div className={s.item}>
             <div className={s['main-info']}>
