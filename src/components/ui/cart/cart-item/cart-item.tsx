@@ -12,6 +12,8 @@ export const CartItem: FC<{cartItem: ICartItem}> = ({cartItem}) => {
         return <Loader />
     }
 
+    useEffect(() => {}, [cartItem])
+
     return (
         <div className={s.item}>
             <div className={s['main-info']}>
