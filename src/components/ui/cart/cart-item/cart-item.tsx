@@ -1,16 +1,9 @@
-'use client'
-
 import { ICartItem } from "@/types/cart.interface"
 import Image from "next/image"
-import { FC, useEffect } from "react"
+import { FC } from "react"
 import s from './cart-item.module.scss'
-import { Loader } from "@/components/utils/loader/loader"
 
 export const CartItem: FC<{cartItem: ICartItem}> = ({cartItem}) => {
-    
-    if (!cartItem.product) {
-        return <Loader />
-    }
 
     return (
         <div className={s.item}>
