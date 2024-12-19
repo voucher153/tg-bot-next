@@ -7,7 +7,7 @@ export const CartItem: FC<{cartItem: ICartItem}> = ({cartItem}) => {
     return (
         <div className={s.item}>
             <div className={s['main-info']}>
-                <Image width={50} height={50} src={cartItem.product.imageUrl} alt="product" />
+                <Image width={50} height={50} src={cartItem.product.imageUrl || ""} alt="product" />
                 <div className={s['text-info']}>
                     <span>{cartItem.product.name}</span>
                     <span className={s.quantity}>{cartItem.quantity}x</span>
