@@ -25,8 +25,6 @@ interface ICatalog {
 
 export const CatalogPage: FC<ICatalog> = ({sortType, searchTerm}) => {
 
-    const {push} = useRouter()
-
     const [page, setPage] = useState(1)
     const filter = useTypedSelector(state => state.category.filter)
 

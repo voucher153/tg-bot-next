@@ -1,5 +1,7 @@
 export const getContentType = () => ({
     'Content-Type': 'application/json',
+    'key': 'Access-Control-Allow-Origin',
+    'value': 'https://zhuravlevfactory.ru/'
 })
 
 export const errorCatch = (error: any): string => {

@@ -56,7 +56,7 @@ export const MoreInfo: FC<{order: IOrder, date: string, month: string, arriveDat
                 <OrderProducts items={order.items} orderPage />
             </div>
             <div className={s.result}>
-                Итого: {fullPrice}₽
+                Итого: {fullPrice.toFixed(2)}₽
             </div>
         </div>
     )
