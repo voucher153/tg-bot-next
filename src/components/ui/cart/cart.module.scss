@@ -74,7 +74,7 @@
 .button {
     position: fixed;
     width: 100vw;
-    bottom: -100%;
+    bottom: 0;
     left: 0;
     animation: buttonFrom 0.3s forwards;
     height: 50px;
