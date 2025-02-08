@@ -44,6 +44,10 @@ export const MoreInfo: FC<{order: IOrder, date: string, month: string, arriveDat
                         <span className={s.date}>{'Юридическое лицо (ИП):'}</span>
                         <span className={s['date-num']}>{order.company}</span>
                     </div>
+                    <div>
+                        <span className={s.date}>{'Адрес доставки:'}</span>
+                        <span className={s['date-num']}>{order.address}</span>
+                    </div>
                     <div className={s['status-block']}>
                         <span className={checkStatus() == 'Новый заказ' ?
                             `${s.status} ${s.new}` :

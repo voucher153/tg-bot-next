@@ -121,13 +121,17 @@ export const AuthForm = ({type}: {type: 'register' | 'login'}) => {
                         errors={errors}
                     />
                     ) : (
-                        <Input 
-                            register={register}
-                            name="password"
-                            type="password"
-                            placeholder='Пароль'
-                            errors={errors}
-                        />
+                        <>
+                            <Input 
+                                register={register}
+                                name="password"
+                                type="password"
+                                placeholder='Пароль'
+                                errors={errors}
+                            />
+                            <Link href='/forgot-password' className={s.link}>Забыл пароль</Link>
+                        </>
+                        
                     )
                 }
                 {type === 'register' ? (

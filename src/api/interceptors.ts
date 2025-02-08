@@ -9,7 +9,7 @@ import { getAccessToken, removeTokenFromStorage } from '../services/auth/auth-to
 
 const options: CreateAxiosDefaults = {
     baseURL: 'https://zhuravlevfactory.ru/api',
-    // baseURL: process.env.SERVER_URL,
+    //baseURL: 'http://localhost:4300/api',
     headers: getContentType(),
     withCredentials: true
 }

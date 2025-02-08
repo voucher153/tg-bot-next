@@ -14,6 +14,7 @@ export interface IOrder {
     user: IUser
     date: string
     company: string
+    address: string
 }
 
 export interface IOrderPost {
@@ -21,6 +22,7 @@ export interface IOrderPost {
     items: ICartItemPost[]
     date: string
     company: string
+    address: string
 }
 
 export type TypePaginationOrders = {

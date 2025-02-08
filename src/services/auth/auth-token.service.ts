@@ -10,7 +10,7 @@ export const getAccessToken = () => {
 export const saveTokenStorage = (accessToken: string) => {
     Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
         domain: process.env.DOMAIN,
-        sameSite: 'strict',
+        sameSite: 'lax',
         expires: 30
     })
 }
@@ -27,7 +27,7 @@ export const getType = () => {
 export const saveTypeToStorage = (type: 'admin' | 'user') => {
     Cookies.set('type', type, {
         domain: process.env.DOMAIN,
-        sameSite: 'strict',
+        sameSite: 'lax',
         expires: 30
     })
 }

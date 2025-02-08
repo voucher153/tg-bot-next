@@ -27,6 +27,7 @@ import 'dayjs/locale/de';
 interface ICartForm {
     date: Dayjs
     company: string
+    address: string
     //status: string
     //items: ICartItemPost[]
 }
@@ -42,6 +43,7 @@ export const CartPage = () => {
     const formSchema = z.object({
         date: z.instanceof(dayjs as unknown as typeof Dayjs, {message: 'Обязательное поле'}),
         company: z.string().min(1, {message: 'Обязательное поле'}),
+        address: z.string().min(1)
         // status: z.string(),
         // items: z.array(itemsSchema)
     })
@@ -56,7 +58,8 @@ export const CartPage = () => {
         resolver: zodResolver(formSchema),
         defaultValues: {
             date: '',
-            company: ''
+            company: '',
+            address: '',
         }
     })
 
@@ -92,7 +95,8 @@ export const CartPage = () => {
             date,
             items,
             status: 'new_order',
-            company: data.company
+            company: data.company,
+            address: data.address,
         }
         console.log(newData)
         try {
@@ -141,7 +145,7 @@ export const CartPage = () => {
                                 render={({ field }) => {
                                     return (
                                         <DatePicker
-                                            label="Дата"
+                                            label="Дата доставки"
                                             
                                             inputRef={field.ref}
                                             onChange={(date) => {
@@ -161,6 +165,15 @@ export const CartPage = () => {
                             placeholder='Юридическо лицо (ИП)'
                         />
                         <div className={s.error}>{errors.company?.message}</div>
+                    </div>
+                    <div className={s.adrs}>
+                        <input 
+                            {...register('address', {required: true})}
+                            className={s.input}
+                            placeholder='Адрес доставки'
+                        />
+                        <div className={s.error}>{errors.address?.message}</div>
+                        <div className={s.shablon}>Шаблон адреса: Страна, регион, город, улица, дом, корп. и т.д</div>
                     </div>
                 </div>
             </div>
