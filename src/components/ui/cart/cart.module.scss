@@ -73,11 +73,12 @@
 
 .button {
     position: fixed;
-    width: 110vw;
-    bottom: -90vh;
+    width: 100vw;
+    bottom: 10px;
     left: 0;
+    z-index: 1000;
     animation: buttonFrom 0.3s forwards;
-    height: 50px;
+    height: 60px;
     //background-color: rgb(69, 201, 51);
     background-color: var(--main-color);
     display: flex;
